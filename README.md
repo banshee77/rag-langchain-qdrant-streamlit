@@ -4,6 +4,7 @@ _RAG (Retrieval-augmented generation)_ demo based on:
 * **LangChain** a framework for developing applications powered by language models 
 * **Qdrant** a vector similarity search engine
 * **Streamlit**  a faster way to build and share data apps
+* **Argilla** an open-source data curation platform for LLMs
 
 # Qdrant 
 
@@ -43,6 +44,18 @@ Ask 'demo_rag' collection a quastion
 py 1-ask-collection.py
 ```
 
+# Argilla
+
+Run as docker
+```
+docker run -d --name argilla -p 6900:6900 argilla/argilla-quickstart:latest
+```
+
+Create Argilla dataset
+```
+py 2-argilla-create-dataset.py
+```
+
 # Steamlit 
 
 Start chatbot steamlit with qdrant collection
@@ -63,4 +76,5 @@ Examples:
 # Links
 https://python.langchain.com/docs/integrations/vectorstores/qdrant
 https://python.langchain.com/docs/integrations/providers/streamlit
+https://docs.argilla.io/en/latest/index.html
 

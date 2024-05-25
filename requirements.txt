@@ -3,5 +3,7 @@ langchain_openai
 langchain_text_splitters
 python-dotenv
 qdrant_client
+langchain-qdrant
 langchain
 streamlit
+argilla
