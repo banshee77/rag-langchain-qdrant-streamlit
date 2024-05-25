@@ -39,7 +39,7 @@ Load txt tto 'demo_rag' collection
 py 0-load-txt-to-collection.py
 ```
 
-Ask 'demo_rag' collection a quastion
+Ask 'demo_rag' collection a question
 ```
 py 1-ask-collection.py
 ```
@@ -49,6 +49,15 @@ py 1-ask-collection.py
 Run as docker
 ```
 docker run -d --name argilla -p 6900:6900 argilla/argilla-quickstart:latest
+```
+
+Add Argilla constants to .env file: 
+
+```
+export ARGILLA_API_URL = "..."
+export ARGILLA_API_KEY = "..."
+export ARGILLA_WORKSPACE = "..."
+export ARGILLA_DATASET_NAME = "..."
 ```
 
 Create Argilla dataset
