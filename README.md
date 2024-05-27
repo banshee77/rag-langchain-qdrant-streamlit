@@ -17,7 +17,7 @@ docker run --name qdrant -d -p 6333:6333 -p 6334:6334 -v $(pwd)/qdrant_storage:/
 Start Web UI Dashboard
 
 ```
-localhost:6333/dashboard
+http://localhost:6333/dashboard
 ```
 
 # OPENAI
@@ -65,12 +65,30 @@ Create Argilla dataset
 py 2-argilla-create-dataset.py
 ```
 
+Start Web UI Dashboard
+
+```
+http://localhost:6900/
+```
+
+# Phoenix Arize
+Run as docker compose 
+```
+docker compose up --build
+```
+
+Start Web UI Dashboard
+
+```
+http://localhost:6006/
+```
+
 # Steamlit 
 
 Start chatbot steamlit with qdrant collection
 
 ```
-streamlit run 2-steamlit-chatbot.py
+streamlit run 3-steamlit-chatbot.py
 ```
 
 Ask any question related to 'state_of_the_union.txt' content.

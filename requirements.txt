@@ -7,3 +7,4 @@ langchain-qdrant
 langchain
 streamlit
 argilla
+arize-phoenix

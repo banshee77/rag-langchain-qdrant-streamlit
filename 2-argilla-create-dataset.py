@@ -1,7 +1,10 @@
 # https://python.langchain.com/v0.1/docs/integrations/callbacks/argilla/
 
+from dotenv import load_dotenv
 import argilla as rg
 import os
+
+load_dotenv()
 
 ARGILLA_API_URL = os.getenv("ARGILLA_API_URL")
 ARGILLA_API_KEY = os.getenv("ARGILLA_API_KEY")
@@ -12,6 +15,10 @@ rg.init(
     api_url=ARGILLA_API_URL,
     api_key=ARGILLA_API_KEY,
 )
+
+print (ARGILLA_WORKSPACE)
+rg.Workspace.create(ARGILLA_WORKSPACE)
+print (ARGILLA_WORKSPACE)
 
 dataset = rg.FeedbackDataset(
     fields=[
@@ -34,4 +41,4 @@ dataset = rg.FeedbackDataset(
     guidelines="You're asked to rate the quality of the response and provide feedback.",
 )
 
-dataset.push_to_argilla(ARGILLA_DATASET_NAME, workspace=ARGILLA_WORKSPACE)
+dataset.push_to_argilla(name=ARGILLA_DATASET_NAME, workspace=ARGILLA_WORKSPACE)

@@ -11,6 +11,7 @@ from langchain_core.prompts import ChatPromptTemplate
 import argilla as rg
 import os
 from dotenv import load_dotenv, find_dotenv
+from phoenix.trace.langchain import LangChainInstrumentor
 
 _ = load_dotenv(find_dotenv())  # read OPENAI_API_KEY from local .env file
 
@@ -19,11 +20,12 @@ ARGILLA_API_KEY = os.getenv("ARGILLA_API_KEY")
 ARGILLA_WORKSPACE = os.getenv("ARGILLA_WORKSPACE")
 ARGILLA_DATASET_NAME = os.getenv("ARGILLA_DATASET_NAME")
 
+LangChainInstrumentor().instrument()
 
 def add_argilla_record(prompt: str, response: str):
     """Add a prompt response pair to a dataset on the AI is succinct API."""
     rg.init(api_url=ARGILLA_API_URL, api_key=ARGILLA_API_KEY)
-    dataset = rg.FeedbackDataset.from_argilla(ARGILLA_DATASET_NAME, ARGILLA_WORKSPACE)
+    dataset = rg.FeedbackDataset.from_argilla(name=ARGILLA_DATASET_NAME, workspace=ARGILLA_WORKSPACE)
     dataset.add_records(
         rg.FeedbackRecord(
             fields={
